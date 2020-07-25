@@ -2,6 +2,7 @@
   "name": "create-react-components",
   "version": "0.1.0",
   "private": true,
+  "main": "create-react-components.js",
   "dependencies": {
     "yaml": "^1.10.0",
     "yargs": "^15.4.1"
