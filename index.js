@@ -111,7 +111,7 @@ class Structure {
 const program = new Command();
 
 program
-    .version('0.0.2')
+    .version(require('./package.json').version)
     .command('run')
     .description('clone a repository into a newly created directory')
     .option('-c, --config <config>', 'components config file', './components.yml')
