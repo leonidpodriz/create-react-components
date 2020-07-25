@@ -112,7 +112,7 @@ const program = new Command();
 
 program
     .version(require('./package.json').version)
-    .command('run')
+    .command('create-all')
     .description('clone a repository into a newly created directory')
     .option('-c, --config <config>', 'components config file', './components.yml')
     .option('-f, --folder <folder>', 'output src folder', "./src")
