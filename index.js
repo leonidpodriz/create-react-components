@@ -2,9 +2,8 @@
 
 const fs = require('fs')
 const YAML = require('yaml')
-const {argv} = require('yargs')
+const {Command} = require('commander');
 
-const {configFile='./components.yml', folder="./src"} = argv;
 
 class BaseGetComponentContent {
     content = "";
@@ -109,5 +108,20 @@ class Structure {
     }
 }
 
-const structure = new Structure(configFile, folder);
-structure.createComponents();
+const program = new Command();
+
+program
+    .version('0.0.2')
+    .command('run')
+    .description('clone a repository into a newly created directory')
+    .option('-c, --config <config>', 'components config file', './components.yml')
+    .option('-f, --folder <folder>', 'output src folder', "./src")
+    .action((source) => {
+        const {config, folder} = source;
+        const structure = new Structure(config, folder);
+        structure.createComponents();
+        structure.createComponents();
+    });
+
+
+program.parse(process.argv);
