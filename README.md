@@ -57,4 +57,7 @@ Example folder tree:
 
 ```
 
-To be continued...
+### Advice
+Run ```cr-components create-all -h``` to see more options.
+
+##### To be continued...
