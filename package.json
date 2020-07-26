@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Script to simple creation of React components",
   "main": "index.js",
-  "publishConfig": { "registry": "https://npm.pkg.github.com/@leonidpodriz" },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@leonidpodriz"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,6 +26,7 @@
   "homepage": "https://github.com/leonidpodriz/create-react-components#readme",
   "dependencies": {
     "commander": "^6.0.0",
+    "react": "^16.13.1",
     "yaml": "^1.10.0"
   },
   "bin": {
