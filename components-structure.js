@@ -9,6 +9,10 @@ class Structure {
     componentsPaths = [];
     folder = "./src"
 
+    static isArray(obj) {
+        return obj.length !== undefined
+    }
+
     constructor(configFile, folder) {
         const file = fs.readFileSync(configFile, 'utf8')
         this.structureConfig = YAML.parse(file);
@@ -23,7 +27,7 @@ class Structure {
     __getComponentsPaths(structure, currentPath = "/") {
         structure = structure ? structure : this.structureConfig;
 
-        if (structure.length !== undefined) {
+        if (Structure.isArray(structure)) {
             structure.forEach(item => {
                 this.componentsPaths.push(this.folder + currentPath + item);
             })
