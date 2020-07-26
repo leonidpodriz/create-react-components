@@ -1,0 +1,13 @@
+app: # it is the folder
+  components: # it is the folder
+    - App # it is the component
+client:
+  Header:
+    components:
+      - Header
+      - Navbar
+      - NavbarMenu
+shared:
+  components:
+    - Button
+    - Logo
