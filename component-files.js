@@ -1,4 +1,5 @@
 const fs = require("fs");
+const path = require("path");
 
 
 class BaseComponentFile {
@@ -66,8 +67,8 @@ class Component {
         this.options = componentOptions ? componentOptions : Component.defaultComponentOptions;
     }
 
-    getComponentNameByPath(path) {
-        return path.split("/").pop();
+    getComponentNameByPath(component_path) {
+        return component_path.split(path.sep).pop();
     }
 
     _getFileClass = (file_type) => {

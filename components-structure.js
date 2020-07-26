@@ -1,12 +1,12 @@
 const Component = require('./component-files');
 
 
-const fs = require('fs')
-const YAML = require('yaml')
+const fs = require('fs');
+const YAML = require('yaml');
+const path = require('path');
 
 
 class Structure {
-    componentsPaths = [];
     folder = "./src"
 
     static isArray(obj) {
@@ -18,28 +18,24 @@ class Structure {
         this.structureConfig = YAML.parse(file);
         this.folder = folder;
     }
+    
+    _getComponentsPaths(structure, currentPath = this.folder) {
+        let paths = [];
 
-    getPaths() {
-        this.__getComponentsPaths(this.structureConfig);
-        return this.componentsPaths;
-    }
-
-    __getComponentsPaths(structure, currentPath = "/") {
         if (Structure.isArray(structure)) {
-            structure.forEach(item => {
-                this.componentsPaths.push(this.folder + currentPath + item);
-            })
+            paths.push(...structure.map( item => path.join(currentPath, item) ));
         } else {
-            Object.entries(structure).forEach((item) => {
-                const [path, nextObjects] = item;
-                this.__getComponentsPaths(nextObjects, currentPath + path + "/")
-            })
+            Object.entries(structure).forEach( ([itemName, nextStructure]) => {
+                paths.push(...this._getComponentsPaths(nextStructure, path.join(currentPath, itemName)));
+            } )
         }
+
+        return paths;
     }
 
     createComponents() {
-        const paths = this.getPaths();
-        paths.map(this.createComponentFiles)
+        const paths = this._getComponentsPaths(this.structureConfig);
+        paths.map(this.createComponentFiles);
     }
 
     createComponentFiles(path) {
