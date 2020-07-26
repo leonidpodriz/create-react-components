@@ -14,7 +14,7 @@ You are free to use this in new React project.
     npm install cr-components --save-dev
     ```
     Or, if you are use **yarn**:
-    ```
+    ```sh
     # using yarn:
     yarn add cr-components --dev
     ```
