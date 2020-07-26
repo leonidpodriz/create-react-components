@@ -1,6 +1,9 @@
 const fs = require("fs");
 const path = require("path");
 
+const scriptPath = fs.realpathSync(__dirname);
+const templatesPath = path.join(scriptPath, "/component-files-templates/");
+
 
 class BaseComponentFile {
     content = "";
@@ -36,17 +39,17 @@ class BaseComponentFile {
 
 class JSXComponentFile extends BaseComponentFile {
     file_extension = "jsx";
-    content = fs.readFileSync("./component-files-templates/ComponentName.jsx", "utf8");
+    content = fs.readFileSync(path.join(templatesPath, "ComponentName.jsx"), "utf8");
 }
 
 class CSSComponentFile extends BaseComponentFile {
     file_extension = "css";
-    content = fs.readFileSync("./component-files-templates/ComponentName.css", "utf8");
+    content = fs.readFileSync(path.join(templatesPath, "ComponentName.css"), "utf8");
 }
 
 class IndexComponentFile extends BaseComponentFile {
     file_name = "index";
-    content = fs.readFileSync("./component-files-templates/index.js", "utf8");
+    content = fs.readFileSync(path.join(templatesPath, "index.js"), "utf8");
 }
 
 class Component {
