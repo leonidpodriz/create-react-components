@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Script to simple creation of React components",
   "main": "index.js",
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
+  "publishConfig": { "registry": "https://npm.pkg.github.com/@leonidpodriz" },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
