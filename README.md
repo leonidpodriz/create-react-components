@@ -8,17 +8,7 @@ You are free to use this in new React project.
 
 ### How to use it?
 1. Create new React project. Read a [official CRA docs](https://github.com/facebook/create-react-app#creating-an-app) to know how to do this. 
-2. Install **cr-components** with the command:
-    ```sh
-    # using npm:
-    npm install cr-components --save-dev
-    ```
-    Or, if you are use **yarn**:
-    ```sh
-    # using yarn:
-    yarn add cr-components --dev
-    ```
-3. Create config with name `components.yml`. It can looks like:
+2. Create config with name `components.yml`. It can looks like:
     ```yaml
    # components.yml
     app: # it is the folder
@@ -35,7 +25,7 @@ You are free to use this in new React project.
         - Button
         - Logo
     ```
-4. Run `cr-components create-all` to parse and create components from a config.
+3. Run `npx cr-components create-all` to parse and create components from a config.
 
 Every component`s folder will be created with next files: _Component.jsx_, _Component.css_, _index.js_.
 
