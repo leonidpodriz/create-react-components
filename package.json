@@ -1,6 +1,6 @@
 {
   "name": "cr-components",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Script to simple creation of React components",
   "main": "index.js",
   "publishConfig": {
