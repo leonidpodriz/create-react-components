@@ -20,13 +20,11 @@ class Structure {
     }
 
     getPaths() {
-        this.__getComponentsPaths();
+        this.__getComponentsPaths(this.structureConfig);
         return this.componentsPaths;
     }
 
     __getComponentsPaths(structure, currentPath = "/") {
-        structure = structure ? structure : this.structureConfig;
-
         if (Structure.isArray(structure)) {
             structure.forEach(item => {
                 this.componentsPaths.push(this.folder + currentPath + item);
